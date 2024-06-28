@@ -1,0 +1,46 @@
+#menuBox{
+    background-color: black;
+    color:white;
+  text-align: center;
+}
+h5{
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    margin: 5px;
+
+}
+#mainimage{
+    height: 80px;
+    border-radius: 40px;
+    border-style:inset;
+    margin: 0px;
+}
+#status{
+    margin: auto;
+}
+.logo{
+    height: 12px;
+    border-radius: 2px;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.mainindex{
+    color: white;
+    text-decoration: none;
+}
+.mainindex:hover{
+    text-decoration: underline;
+}
+.subindex{
+    text-decoration: none;
+    color:white;
+}
+ul{
+    text-decoration: none;
+    list-style: none;
+    margin: 0px;
+
+}
