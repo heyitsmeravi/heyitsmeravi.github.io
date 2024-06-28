@@ -21,6 +21,7 @@ h5{
     display: inline-flex;
     text-align: center;
     justify-content: center;
+    height:10px;
 
 }
 .logo{
@@ -59,28 +60,18 @@ table{
 .subindex{
     text-decoration: none;
     color:white;
-    
+    text-align: end;
+}
 ul{
     text-decoration: none;
     list-style: none;
     margin:0px 0px 0px 3px;
     padding-left:0px;
-   
     text-align: left;
 
 }
-.mainindexrow{
-    text-align: start;
-    
-}
-.subindexrow{
-margin:7px;
-    text-align: start;
-    
-}
-}
 .mainstatus{
-    display:contents;
+    display:content;
     font-size:10px;
     font-weight:100 ;
     margin: 0px;
@@ -96,8 +87,9 @@ margin:7px;
     color:#ffffff;
     font-weight: 500;
     position: relative;
+    list-style: none;
     top:0;
-    animation: slide 6s steps(4) infinite;
+    animation: slide 10s steps(4) infinite;
 }
 @keyframes slide {
     100%{
@@ -115,11 +107,11 @@ margin:7px;
     background-color: rgb(0, 0, 0);
     border-left: 1px solid #ffffff;
     left:0;
-    animation: typing 1.5s steps(12) infinite;
+    animation: typing 2.5s steps(12) infinite;
 }
 @keyframes typing {
   100% {
     left:100%;
-    margin: 0px -35px 0px 35px;
+    margin: 0px -8px 0px 8px;
 }
 }
