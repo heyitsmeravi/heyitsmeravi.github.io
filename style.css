@@ -7,7 +7,7 @@ h5{
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color:white;
-    margin: 5px;
+    margin: 0px;
 
 }
 #mainimage{
@@ -17,19 +17,41 @@ h5{
     margin: 0px;
 }
 #status{
-    margin: auto;
+    margin: 0px;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+
 }
 .logo{
     height: 12px;
     border-radius: 2px;
 }
+.contacts{
+padding:0px;
+}
+.contactsrow{
+    text-align: end;
+}
+.linklogo{
+    text-decoration: none;
+    color:black;
+    font-size:6px;
+}
+.linklogo:hover{
+color:white;
+}
 table{
     margin-left: auto;
     margin-right: auto;
 }
+.indexcontainer{
+    display: inline-flexbox;
+}
 .mainindex{
     color: white;
     text-decoration: none;
+    text-align: end;
 }
 .mainindex:hover{
     text-decoration: underline;
@@ -37,10 +59,67 @@ table{
 .subindex{
     text-decoration: none;
     color:white;
-}
+    
 ul{
     text-decoration: none;
     list-style: none;
-    margin: 0px;
+    margin:0px 0px 0px 3px;
+    padding-left:0px;
+   
+    text-align: left;
 
+}
+.mainindexrow{
+    text-align: start;
+    
+}
+.subindexrow{
+margin:7px;
+    text-align: start;
+    
+}
+}
+.mainstatus{
+    display:contents;
+    font-size:10px;
+    font-weight:100 ;
+    margin: 0px;
+    color:burlywood
+}
+#statusDetail{
+    position: relative;
+    height:10px;
+    line-height: 10px;
+    overflow: hidden;
+}
+#status #statusDetail li{
+    color:#ffffff;
+    font-weight: 500;
+    position: relative;
+    top:0;
+    animation: slide 6s steps(4) infinite;
+}
+@keyframes slide {
+    100%{
+        top: -40px;
+    }
+}
+#status #statusDetail li span{
+    position: relative;
+}
+#status #statusDetail li span::after {
+    content:"";
+    position:absolute;
+    height: 10px;
+    width:100%;
+    background-color: rgb(0, 0, 0);
+    border-left: 1px solid #ffffff;
+    left:0;
+    animation: typing 1.5s steps(12) infinite;
+}
+@keyframes typing {
+  100% {
+    left:100%;
+    margin: 0px -35px 0px 35px;
+}
 }
