@@ -107,8 +107,14 @@ table{
 .subindex{
     text-decoration: none;
     color:rgb(255, 255, 255);
-    text-align: end;
+   
     font-weight: 300;
+}
+#resumedownloadbtn1{
+    color:white; display:none;
+}
+ #resumebutn1:hover + #resumedownloadbtn1{
+display:block;
 }
 ul{
     text-decoration: none;
@@ -178,7 +184,7 @@ ul{
     content:"";
     width:0;
     height:2px;
-    background: rgb(255, 255, 255);
+    background: yellow;
     position:absolute;
     left:0;
     bottom:-2px;
@@ -252,7 +258,7 @@ ul{
 }
 
 /* contact form */
-.form input,textarea{
+.formtag input,textarea{
  width:100%;
  font-size: 15px;
  margin:5px 0px;
@@ -262,7 +268,7 @@ ul{
  border-radius: 20px;
 
 }
-.sendMsg{
+.formtag .sendMsg{
     width:fit-content;
     color:rgb(255, 255, 255);
     font-size: 20px;
@@ -272,6 +278,16 @@ ul{
     margin:20px 0px;
     font-weight: 600;
     
+}
+.formtag .sendMsg:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    color:yellow;
+}
+#msg{
+    color:green;
+    font-size: 20px;
+    margin:0px 10px;
 }
 
 

@@ -45,9 +45,17 @@
                 <tr >
                     <td class="subindexrow"><a href="#projects" class="subindex"> &nbsp -Projects</a></td>
                 </tr>
+                <tr><td  id="resumebutn" class="subindex" onclick="showdownloadbtn()">&nbsp -Resume</td>
+                    <td class="subindexrow" id="resumedownloadbtn" style="display: none; "><a href="assets\Ravi-resume.pdf" class="subindex" download> &nbsp Download</a></td>
+                </tr>
                 <tr class="mainindexrow2"> 
                     <td ><a href="" class="mainindex">Poems</a></td>
                 </tr>
+                <tr class="mainindexrow3"> 
+                    <td ><a href="#contactsection" class="mainindex">Contacts</a></td>
+                </tr>
+                <tr><td id="resumebutn1" style="color:white; cursor:pointer;"> hide</td>
+                <td id="resumedownloadbtn1"> Ravi </td></tr>
              </table>
              </nav>
         </div>
@@ -120,36 +128,27 @@
 
 
     <div class="contactme">
-        <h3 class="heading">Get In Touch</h3>
+        <h3 class="heading" id="contactsection">Get In Touch</h3>
         <div class="contactinfo">
             <div> 
                 For any query leave the message or send email at Email:ravijnv2428@gmail.com</div>
-        <a href="assets\Ravi-resume.pdf" download> Resume</a>
+        
         </div>
-    <div class="form">
-        <form  action="https://script.google.com/macros/s/AKfycbz7v0SCljWCYYtxBmhKeUo8KbZpoubKVcDuugFx2emgImxquycfiWDM80OBWFw0L4GJ/exec" method="post">
+    <div class="formtag">
+        <form name="contactData">
             <input type="text" name="name" placeholder="Enter Your Name" required> <br>
             <input type="email" name="email" placeholder="Enter your email" required> <br>
             <input type="tel" name="phone" placeholder="Enter Your Phone Number" required> <br>
             <textarea type="text" name="message" placeholder="Enter Your Messages" rows="5" required></textarea>
-            <button type="submit" class="sendMsg" onclick="sendMsg()">Submit</button>
-            <div class="msg"></div>
+            <input type="submit" class="sendMsg">
+            <span id="msg"></span>
         </form>
     </div>
 </div>
 </div>
-<!-- <script>
-const form=document.forms['contactData'] 
-const msg=document.getElementsByClassName('msg');
-const scriptUrl="https://script.google.com/macros/s/AKfycbzTNAM8iKCkY-_0NEBWUXWWDMYW7mIPuY_-xUdjQZ-tEu4mX2I3dt0Lw4mcA1lmW_Q/exec"
-form.addEventListener('submit',(e)=>{
-    e.preventDefault();
-    fetch(scriptUrl, {
-        mehtod:'POST', body: new FormData(form)
-    })
-    .then (response => msg.innerText="thanks for contacting")
-})
-</script> -->
+<script>
+
+</script>
     <script src="script.js"></script>
 </body>
 </html>
