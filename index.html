@@ -61,9 +61,9 @@
             </div>
         <p> I am currently pursuing B.Tech in Information Technology at Muzaffarpur Institute Of Technology, and i am passionate about software development, data science, and innovative technologies. My goal is to leverage my skills to solve real-world problems and create impactful solutions.
         </p>
-        <div class="tabs">
+        <!-- <div class="tabs">
         <p class="tablink" onclick="education()">Education</p>
-        <p class="tablink" onclick="skills()" > Skills </p> </div>
+        <p class="tablink" onclick="skills()" > Skills </p> </div> -->
         <p id="education" >
         B.tech(Information Technology):
         Muzaffarpur Institute of Technology,<br>
@@ -77,14 +77,14 @@
         <br>Rohtas 90.2%
     
     </p>
-    <p id="skills" style="display:none;">
+    <!-- <p id="skills" style="display:none;">
         proefficient in python <br>
         experiene in html css javascript <br>
         experience in c <br>
     
     
-    </p>
-    <section>
+    </p> -->
+    <section id="skills">
         <h3 class="heading"> Skills</h3>
     </section>
    <div class="skillcontainer">
@@ -120,21 +120,36 @@
 
 
     <div class="contactme">
+        <h3 class="heading">Get In Touch</h3>
         <div class="contactinfo">
-        <a href="assets\ravi (1).pdf" download> Resume</a>
+            <div> 
+                For any query leave the message or send email at Email:ravijnv2428@gmail.com</div>
+        <a href="assets\Ravi-resume.pdf" download> Resume</a>
         </div>
     <div class="form">
-        <h3 class="heading">Get In Touch</h3>
-        <form action="">
+        <form  action="https://script.google.com/macros/s/AKfycbz7v0SCljWCYYtxBmhKeUo8KbZpoubKVcDuugFx2emgImxquycfiWDM80OBWFw0L4GJ/exec" method="post">
             <input type="text" name="name" placeholder="Enter Your Name" required> <br>
-            <input type="Email" name="email" placeholder="Enter your email" required> <br>
-            <input type="tel" name="number" placeholder="Enter Your Phone Number"> <br>
-            <textarea type="text" name="msg" placeholder="Enter Your Messages" rows="5"></textarea>
-            <button id="sendMsg" onclick="sendMsg()">Submit</button>
+            <input type="email" name="email" placeholder="Enter your email" required> <br>
+            <input type="tel" name="phone" placeholder="Enter Your Phone Number" required> <br>
+            <textarea type="text" name="message" placeholder="Enter Your Messages" rows="5" required></textarea>
+            <button type="submit" class="sendMsg" onclick="sendMsg()">Submit</button>
+            <div class="msg"></div>
         </form>
     </div>
 </div>
 </div>
+<!-- <script>
+const form=document.forms['contactData'] 
+const msg=document.getElementsByClassName('msg');
+const scriptUrl="https://script.google.com/macros/s/AKfycbzTNAM8iKCkY-_0NEBWUXWWDMYW7mIPuY_-xUdjQZ-tEu4mX2I3dt0Lw4mcA1lmW_Q/exec"
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    fetch(scriptUrl, {
+        mehtod:'POST', body: new FormData(form)
+    })
+    .then (response => msg.innerText="thanks for contacting")
+})
+</script> -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -10,3 +10,6 @@ function education(){
     let education=document.getElementById("education");
     education.style.display="block" ;
 }
+function sendMsg(){
+
+}

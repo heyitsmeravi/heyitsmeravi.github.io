@@ -104,9 +104,6 @@ table{
     font-weight: 1000;
 
 }
-.mainindex:hover{
-    text-decoration: underline;
-}
 .subindex{
     text-decoration: none;
     color:rgb(255, 255, 255);
@@ -169,24 +166,22 @@ ul{
 .tabs{
     display:flex;
 }
-.tablink{
-    font-size: 18px;
-    font-weight: 500;
+.subindex,.mainindex{
     position: relative;
     cursor: pointer;
-    margin-left: 50px;
 }
-.tablink:hover::after{
-    width:50%;
+
+.subindex:hover::after , .mainindex:hover::after{
+    width:100%;
 }
-.tablink::after{
+.subindex::after, .mainindex::after{
     content:"";
     width:0;
-    height:3px;
-    background: rgb(248, 38, 1);
+    height:2px;
+    background: rgb(255, 255, 255);
     position:absolute;
     left:0;
-    bottom:-6px;
+    bottom:-2px;
     transition: 0.5s;
 }
 .container {
@@ -247,6 +242,7 @@ ul{
     width:60%;
 }
 .language-javascript{
+
     background-color: #505050;
     width:40%;
 }
@@ -266,7 +262,7 @@ ul{
  border-radius: 20px;
 
 }
-#sendMsg{
+.sendMsg{
     width:fit-content;
     color:rgb(255, 255, 255);
     font-size: 20px;
@@ -299,7 +295,7 @@ ul{
     /* .container  tr{float: left; padding:20px;} */
     .resume_section {
        margin-left: 0;
-       padding:1vh 10vh;
+       padding:1vh 5vh;
 }
   }
   
