@@ -256,6 +256,10 @@ ul{
     background-color:#3f3f3f;
     width:40%;
 }
+.language-java{
+    background-color:#808080;
+    width:40%;
+}
 
 /* contact form */
 .formtag input,textarea{
@@ -289,8 +293,16 @@ ul{
     font-size: 20px;
     margin:0px 10px;
 }
-
-
+.contactinfo{
+    width: 50vh;
+    position: absolute;
+}
+.formtag{
+    width: 50vh;
+    position: flex;
+    
+    
+}
 
 
 
@@ -312,6 +324,9 @@ ul{
     .resume_section {
        margin-left: 0;
        padding:1vh 5vh;
+}
+.contactinfo{
+    background-color: aliceblue;
 }
   }
   
