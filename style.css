@@ -294,12 +294,12 @@ ul{
     margin:0px 10px;
 }
 .contactinfo{
-    width: 50vh;
+    /* width: 50vh; */
     position: absolute;
 }
 .formtag{
-    width: 50vh;
-    position: flex;
+    /* width: 50vh; */
+    /* position: block; */
     
     
 }
