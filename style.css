@@ -295,7 +295,7 @@ ul{
 }
 .contactinfo{
     /* width: 50vh; */
-    position: absolute;
+    position: flex;
 }
 .formtag{
     /* width: 50vh; */
