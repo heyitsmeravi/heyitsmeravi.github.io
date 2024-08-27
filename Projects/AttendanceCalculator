@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator By RAVI </title>
+    <style>
+.box{
+    display:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left: 0;
+    overflow: auto;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#content_box{
+    display: flexbox;
+    background-color: rgb(255, 255, 255);
+    margin:15% auto;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 450px;
+    height: 350px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    justify-content: center;
+}
+#close{
+    color: rgb(31, 30, 29);
+    padding:2px;
+    height:14px; 
+    font-size: 18px;
+    box-sizing:content-box;
+    border:1px solid black;
+    border-radius: 5px;
+}
+#close:hover,
+#close:focus{
+    cursor:pointer;
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+#modalImg{
+    height: 100px;
+    width: 100px;
+    font-style: bold;
+    font-size: 10px;
+    padding: 20px;
+}
+ #remarks , #percent{
+    font-size: 20px;
+     font-style: normal;
+    margin: 5px;
+}
+#result { 
+    margin:10px;
+    font-size: 30px;
+}
+#calculationButton{
+    background-color: rgb(247, 247, 188);
+    color: rgb(64, 62, 62);
+    width:fit-content;
+    box-sizing: content-box;
+    padding: 2px;
+    border-radius: 5px;
+    border:1px solid rgb(0, 0, 0);
+    margin-top: 10px;
+    font-size: 25px;
+}
+#calculationButton:hover, #calculationButton:focus{
+    background-color:white;
+    color:black;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#inputbox{
+    background-color: rgb(12, 7, 0);
+    text-align: center;
+    border-radius: 5px;
+    border:1px solid lightgray;
+    width:100%;
+    margin:0px;
+}
+label{
+color:rgb(245, 245, 200);
+font-style: italic;
+font-size: 22px;
+}
+input{
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(249, 248, 246);
+    font-size: 25px;
+    padding:0.25em;
+    text-align: center;
+    margin-bottom: 7.5px;
+}
+h1{
+    color: white;
+    font-size: 28px;
+    text-decoration: 1px rgb(255, 255, 142) underline;
+    margin-top:100px;
+}
+#close{
+    color: rgb(13, 13, 13);
+    padding:0.2em;
+    width: 30px;
+    height:25px;
+    font-size: 20px;
+    margin: 0px;
+}
+
+    </style>
+
+</head>
+<body style="background-color: antiquewhite;">
+    <div id="inputbox" style="background-color: black; height: max-content;">
+        <h1> Exam Eligibility Check</h1>
+        <label for="">Enter your current attendance:-</label><br>
+        <input type="number" id="current" placeholder="current attendance"><br>
+        <label for="">Enter total working days:-</label><br>
+        <input type="number" name="" id="total" placeholder="total working days"><br>
+        <label for="">Enter the minimum requirement:-</label><br>
+        <input type="number" id="minimum" value="75"><br>
+        <button id="calculationButton" onclick="show()">calculate!</button><br><br><br><br>
+    </div>
+    <div id="mainbox" class="box">
+        <div id="content_box">
+            <br>
+            <img id="modalImg" src="" alt="Image">
+            <p id="result"></p>
+            <p id="percent"></p> 
+            <p id="remarks"></p>
+            <br>
+            <button id="close" onclick="closure()"> OK</button>
+        </div>
+    </div>
+
+<script>
+    function show(){
+            let show=document.getElementById('mainbox');
+            show.style.display='block';
+
+            const current=parseInt(document.getElementById('current').value);
+            const total=parseInt(document.getElementById('total').value);
+            const minimum=parseInt(document.getElementById('minimum').value);
+            const data=current/total*100;
+            let leave;
+            let modalImg = 
+            document.getElementById('modalImg');
+            
+            if (isNaN(current) || isNaN(total)|| (current<0 || total<=0)){
+                let alertMsg=document.getElementById("percent");
+                if(isNaN(current) || isNaN(total )){
+                    alertMsg.innerHTML="please enter some values!!";
+                    modalImg.src='https://assets-v2.lottiefiles.com/a/b5641ed8-1152-11ee-ada0-8f4e8e17569e/RpGVFAqeZF.gif';
+                }
+                else{
+                    alertMsg.innerHTML="please enter some valid inputs !!";
+                    modalImg.src='https://assets-v2.lottiefiles.com/a/b5641ed8-1152-11ee-ada0-8f4e8e17569e/RpGVFAqeZF.gif';
+                }
+                alertMsg.style.color="red";
+                result.innerHTML='Error!';
+                result.style.color='black';
+                
+            }
+            else {
+                let percent=document.getElementById('percent');
+                percent.innerHTML=`Your attendance percent is ${data.toFixed(2)}`;
+                if (data>=minimum){
+                    if (data>minimum){
+                        leave=(((current*100)-(total)*minimum)/minimum);
+                        let leave1=Math.floor(leave);
+                        let remarks=document.getElementById('remarks');
+                        remarks.innerHTML=`you can take upto ${leave1} days leave as you are already above ${minimum}%`;
+                    }
+                    else{
+                        let remarks=document.getElementById('remarks');
+                        remarks.innerHTML='you cannot afford any holidays as you are just on the borderline';
+                    }
+                    percent.style.color="green";
+                }
+                else{
+                    let extra=(((minimum*total)-(100*current))/(100-minimum));
+                    let extra1=Math.floor(extra);
+                    let remarks=document.getElementById('remarks');
+                    remarks.innerHTML=`you need to attend atleast ${extra1} more classes to reach ${minimum}% attendance`;
+                    percent.style.color="red";
+                }
+                if (data>=minimum){
+                    modalImg.src = 
+                    'https://media1.tenor.com/m/BSY1qTH8g-oAAAAC/check.gif';
+                }
+                else{
+                    modalImg.src='https://media.giphy.com/media/3og0IvGtnDyPHCRaYU/giphy.gif';
+                }
+                result.innerHTML="Attendance Result";
+                result.sytle.color='black';
+            }
+        }
+        function closure(){
+        var mod =document.getElementById('mainbox');
+            mod.style.display = 'none';
+        }
+</script>
+</body>
+</html>
