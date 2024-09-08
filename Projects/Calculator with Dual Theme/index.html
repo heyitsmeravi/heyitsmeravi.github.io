@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .body{
+            margin:0px;
+            overflow: hidden;
+        }
+        .container{
+            margin-top:100px;
+            position: absolute;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width:588px;
+            border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            display:block;
+            margin-right: 90%;
+            margin-left:auto;
+            
+        }
+        .btn,.fasfa-backspace {
+            font-size: 45px;
+            background-color: rgb(97, 52, 0);
+            border-radius: 8px;
+            color:whitesmoke;
+            margin:5px;
+            padding:0px,20px;
+            cursor: pointer;
+            width:50px;
+            justify-content: space-around;
+           
+        }
+        #minus,#plus, #multiply , #divide {
+            background-color: rgb(226, 156, 4);
+        }
+        #allclear,#openbrac, #closebrac {
+            background-color: rgb(105, 94, 72);
+        }
+        #calculate{
+            background-image: linear-gradient(rgb(255, 149, 0),rgb(255, 208, 0)); 
+        }
+        #back{
+            display: flex;
+            justify-content: end;
+            border:none;
+            margin-left:365px;
+            width: 50px;
+            margin-bottom: 0px;
+        }
+
+        .btn:hover{
+             transform:scale(1.15);
+
+        }
+        .inputbox{
+            color: white;
+            background-color: black;
+            height:60px;
+            text-align: end;
+            font-size: 40px;
+            margin:8px;
+            padding:8px;
+            border-radius: 8px;
+            width:555px;
+            text-decoration: none;
+        }
+        .calc{
+            background-color:white;
+            border-radius: 10px;
+            justify-content: space-around;
+
+
+        }
+        .firstsec{
+            padding-top: 2px;
+            background-color: black;
+        }
+        .sectwo{
+            margin-top: 3px;
+            background-color:rgb(49, 46, 46);
+            padding-top:20px;
+            padding-bottom:10px;
+        }
+        .theme{
+            font-size: 18px;
+            background-color: rgb(255, 98, 0);
+            width:62px;
+            justify-content: end;
+        }
+.switch {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 24px;
+  margin:10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 10px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #0f0f0f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container" id="main"><nbsp></nbsp>
+       <label class="switch">
+        <input type="checkbox" >
+            <span class="slider round"onclick="changeTheme()" ondblclick="changeTheme2()"></span>
+        </label>
+        <!-- <label for="input"><input type="checkbox" value="" style="text-align: start; justify-content: start;">
+        <span>change to dark</span></label> -->
+        <div class="calc" id="calc">
+            <div class="firstsec" id="firstsec">
+                 <input class="inputbox" id="display" name="display" placeholder="0" onchange="calculate()">
+                </div>
+            <div class="sectwo" id="sectwo">
+            <button class="btn num" id="back" onclick="backspace()"> <i  class="fas fa-backspace" style="font-size:2rem; padding:2px; text-align: center;">
+
+            </i></button>
+            <input type="button" value="C" class="btn sp" id="allclear" onclick="allclear()" >
+            <input type="button" value="(" class="btn sp" id="openbrac" onclick="displaynum(value)">
+            <input type="button" value=")" class="btn sp" id="closebrac" onclick="displaynum(value)">
+            <input type="button" value="-" class="btn op" id="minus" onclick="displaynum(value)">
+            <br>
+            <button class="btn num" onclick="displaynum('7')">7</button>
+            <input type="button" value="8" class="btn num" onclick="displaynum('8')">
+            <input type="button" value="9" class="btn num" onclick="displaynum('9')">
+            <input type="button" value="*" class="btn op" id="multiply"
+            onclick="displaynum(value)">
+            <br>
+            <input type="button" value="4" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="5" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="6" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="/" class="btn op" id="divide" onclick="displaynum(value)">
+            <br>
+            <input type="button" value="1" class="btn num" onclick="displaynum(value)" >
+            <input type="button" value="2" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="3" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="+" class="btn op" id="plus" onclick="displaynum(value)">
+            <br>
+            <input type="button" value="." class="btn num" onclick="displaynum(value)">
+            <input type="button" value="0" class="btn num" onclick="displaynum(value)">
+            <input type="button" value="%" class="btn num" onclick="displaynum(value)">
+            <button class="btn" id="calculate" onclick="calculate()">=</button><br><br>
+        </div>
+        </div>
+    </div>
+    <script>
+        let display=document.getElementById("display");
+        function displaynum(input){
+        display.value+=input;
+    }
+    function calculate(){
+        display.value=eval(display.value);
+    }
+    function allclear(){
+        display.value="";
+    }
+    function backspace(){
+        display.value=display.value.slice(0,-1);
+    }
+    
+    function changeTheme2(){
+        let inputbox=document.getElementById("display");
+        let upper=document.getElementById("firstsec");
+        let lower=document.getElementById("sectwo");
+        let line=document.getElementById("calc");
+        let outer=document.getElementById("main");
+        inputbox.style.backgroundColor='black';
+        inputbox.style.borderColor='black';
+        inputbox.style.color='white';
+        lower.style.backgroundColor='rgb(49, 46, 46)';
+        upper.style.backgroundColor='black';
+        line.style.backgroundColor='white';
+        outer.style.backgroundColor='black';
+        let changenums=document.querySelectorAll(".num");
+        for (let i=0;i< changenums.length;i++){
+            changenums[i].style.backgroundColor="rgb(97, 52, 0)";
+            changenums[i].style.color="white";
+        }
+        let changesp=document.querySelectorAll(".sp");
+        for (let i=0;i< changesp.length;i++){
+            changesp[i].style.backgroundColor=" rgb(105, 94, 72)";
+            changesp[i].style.color="white";
+        }
+        let changeop=document.querySelectorAll(".op");
+        for (let i=0;i< changeop.length;i++){
+            changeop[i].style.backgroundColor=" rgb(226, 156, 4)";
+            changeop[i].style.color="white";
+
+        }
+        let equal=document.getElementById("calculate");
+        equal.style.color="white";
+
+    }
+    function changeTheme(){
+    let line=document.getElementById("calc");
+    let upper=document.getElementById("firstsec");
+    let inputbox=document.getElementById("display");
+    let lower=document.getElementById("sectwo");
+    let outer=document.getElementById("main");
+   upper.style.backgroundColor='rgb(253, 231, 181)';
+    inputbox.style.backgroundColor='rgb(253, 231, 181)';
+    inputbox.style.color='black';
+    inputbox.style.borderColor='rgb(253, 231, 171)';
+   line.style.backgroundColor='black';
+    lower.style.backgroundColor=' rgb(249, 253, 215)';
+    outer.style.backgroundColor='rgb(253, 231, 181)';
+    let change=document.querySelectorAll(".num");
+        for (let i=0;i< change.length;i++){
+            change[i].style.backgroundColor="rgb(244, 223, 185)";
+            change[i].style.color="black";
+        }
+    let changesp=document.querySelectorAll(".sp");
+        for (let i=0;i< changesp.length;i++){
+            changesp[i].style.backgroundColor="rgb(255, 242, 210)";
+            changesp[i].style.color="black";
+
+        }
+        let changeop=document.querySelectorAll(".op");
+        for (let i=0;i< changeop.length;i++){
+            changeop[i].style.backgroundColor=" rgb(226, 156, 4)";
+            changeop[i].style.color="black";
+
+        }
+        let equal=document.getElementById("calculate");
+        equal.style.color="black";
+    }
+    </script>
+</body>
+</html>
