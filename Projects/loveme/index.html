@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    /* White box container */
+    .container {
+      position: relative; /* Establishes a positioning context */
+      width: 400px;
+      height: 300px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .question {
+      font-size: 24px;
+      margin-top: 40px;
+      margin-bottom: 50px;
+      color: #333;
+    }
+    /* Button container without its own positioning context */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: none;
+      border-radius: 5px;
+    }
+    #yesButton {
+      background-color: #28a745;
+      color: #fff;
+    }
+    #noButton {
+      background-color: #dc3545;
+      color: #fff;
+      position: absolute;  /* This button will be moved absolutely */
+      left: 50%;           /* Start at center horizontally */
+      top: 70%;            /* A starting vertical position */
+      transform: translate(-50%, -50%);
+    }
+    /* Modal popup styling (fancy pop-up when Yes is clicked) */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .modal-content h2 {
+      margin: 0 0 20px;
+      color: #28a745;
+    }
+    .modal-content button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="question">Do you love me?</div>
+    <div class="button-container">
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+  </div>
+
+  <!-- Modal Popup -->
+  <div id="modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>I love you too!</h2>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const container = document.querySelector(".container"); // The white box
+    const noButton = document.getElementById("noButton");
+    const yesButton = document.getElementById("yesButton");
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+
+    // When the user hovers over the "No" button, move it within the container.
+    noButton.addEventListener("mouseover", () => {
+      // Get dimensions of the container
+      const containerRect = container.getBoundingClientRect();
+      // Get dimensions of the "No" button
+      const buttonRect = noButton.getBoundingClientRect();
+
+      // Compute maximum left and top positions so that the button remains fully inside the container
+      const maxLeft = containerRect.width - buttonRect.width;
+      const maxTop = containerRect.height - buttonRect.height;
+
+      // Generate random left and top values
+      const randomLeft = Math.floor(Math.random() * maxLeft);
+      const randomTop = Math.floor(Math.random() * maxTop);
+
+      // Update the button's position relative to the container
+      noButton.style.left = randomLeft + "px";
+      noButton.style.top = randomTop + "px";
+    });
+
+    // When the "Yes" button is clicked, show the modal popup in a fancy way.
+    yesButton.addEventListener("click", () => {
+      modal.style.display = "flex"; // Show the modal (using Flexbox to center it)
+    });
+
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  </script>
+</body>
+</html>
