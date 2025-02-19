@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    <form id="qrForm">
+        <label for="data">Enter Data:</label>
+        <input type="text" id="data" name="data" required>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="qrcode"></div>
+    <a id="downloadBtn" style="display: none;" download="qrcode.png">Download QR Code</a>
+
+    <!-- Include the qrcode.min.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        const form = document.getElementById('qrForm');
+        const qrCodeDiv = document.getElementById('qrcode');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const data = document.getElementById('data').value;
+
+            // Clear any previous QR code
+            qrCodeDiv.innerHTML = '';
+            downloadBtn.style.display = 'none';
+
+            // Generate the QR code
+            const qrCode = new QRCode(qrCodeDiv, {
+                text: data,
+                width: 128,
+                height: 128
+            });
+
+            // Wait until the QR code is rendered, then create a downloadable image
+            setTimeout(() => {
+                const qrImage = qrCodeDiv.querySelector('img');
+                if (qrImage) {
+                    downloadBtn.href = qrImage.src;
+                    downloadBtn.style.display = 'inline';
+                } else {
+                    const canvas = qrCodeDiv.querySelector('canvas');
+                    if (canvas) {
+                        downloadBtn.href = canvas.toDataURL("image/png");
+                        downloadBtn.style.display = 'inline';
+                    }
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
