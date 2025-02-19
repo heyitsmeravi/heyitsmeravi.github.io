@@ -93,7 +93,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="question">Do you love me?</div>
+    <div class="question" id="prompt">Do you love me?</div>
     <div class="button-container">
       <button id="yesButton">Yes</button>
       <button id="noButton">No</button>
@@ -137,7 +137,8 @@
 
     // When the "Yes" button is clicked, show the modal popup in a fancy way.
     yesButton.addEventListener("click", () => {
-      modal.style.display = "flex"; // Show the modal (using Flexbox to center it)
+      //modal.style.display = "flex"; // Show the modal (using Flexbox to center it)
+      document.getElementById("prompt").innerHTML="I Love you too";
     });
 
     // Close the modal when the close button is clicked
