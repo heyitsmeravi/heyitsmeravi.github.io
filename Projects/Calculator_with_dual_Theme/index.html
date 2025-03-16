@@ -11,20 +11,19 @@
             overflow: hidden;
         }
         .container{
-            margin-top:100px;
+            margin-top: 50px;
             position: relative;
             text-align: center;
             justify-content: center;
-            justify-self: center;
-            align-content: center;
-            height: 100px;
-            width:588px;
+            align-items: center;
+            max-width: 90%;
+            width: 100%;
             border-radius: 10px;
             background-color: rgb(0, 0, 0);
-            display:block;
-           
-           
-        
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
             
         }
         .btn,.fasfa-backspace {
@@ -55,6 +54,11 @@
             margin-left:365px;
             width: 50px;
             margin-bottom: 0px;
+            top:0;
+            right:0;
+        }
+        #minus{
+            order:1;
         }
 
         .btn:hover{
@@ -64,14 +68,15 @@
         .inputbox{
             color: white;
             background-color: black;
-            height:60px;
+            height: 60px;
             text-align: end;
             font-size: 40px;
-            margin:8px;
-            padding:8px;
+            /* margin: 8px; */
+            padding: 8px;
             border-radius: 8px;
-            width:555px;
-            text-decoration: none;
+            width: 100%; 
+            max-width: 555px;
+            box-sizing: border-box;
         }
         .calc{
             background-color:white;
@@ -91,6 +96,7 @@
             padding-top:20px;
             padding-bottom:10px;
             border-radius: 0px 0px 10px 10px;
+            
         }
         .theme{
             font-size: 18px;
