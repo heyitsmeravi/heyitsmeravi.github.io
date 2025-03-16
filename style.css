@@ -360,11 +360,11 @@ box-shadow: -0px -0px ;
     /* width: 50vh; */
     position: absolute;
 }
-.formtag{
-    /* width: 50vh; */
-    /* position: block; */
+/* .formtag{
+    width: 50vh; */
+    /* position: block;
     
-}
+} */
   /* General Media Queries */
   
   @media screen and (max-width: 700px) {
