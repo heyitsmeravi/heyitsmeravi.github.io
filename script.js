@@ -12,7 +12,11 @@ function education(){
 }
 function showdownloadbtn(){
     let showbtn=document.getElementById('resumedownloadbtn');
-    showbtn.style.display="block";
+    if (showbtn.style.display==="none"){
+        showbtn.style.display="block";
+    }else{
+        showbtn.style.display="none";
+    }
 }
 
 function sendMsg(){
