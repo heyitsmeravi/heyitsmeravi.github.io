@@ -24,7 +24,7 @@ function sendMsg(){
 }
 const form=document.forms['contactData'];
 // const msg=document.getElementById("msg");
-const scriptUrl="https://script.google.com/macros/s/AKfycbwov9kbpNlFPGNY4k6dk-peAwUXNIsICpcYrdMsaRzX2UqL4XexJIjjPCj87fPGPnM/exec"
+const scriptUrl="https://script.google.com/macros/s/AKfycbwbXPybo4m2nq23cMvIXP4r8tpOlc-nmX1mT-pcj_rYdCkG3RqghNYJBEYWlnim4tvq/exec"
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
     document.querySelector(".sendMsg").value="submitting...";
